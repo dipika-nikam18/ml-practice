@@ -5,6 +5,8 @@ Small beginner projects for learning machine learning with Python.
 ```
 ml-practice/
 ├── requirements.txt
+├── setup.bat              (Windows setup)
+├── setup.sh               (Git Bash / Linux / macOS setup)
 ├── 01_kmeans_clustering/
 │   ├── kmeans_basic.py
 │   ├── elbow_method.py
@@ -19,13 +21,56 @@ ml-practice/
     └── simple_rag.py
 ```
 
-## Setup
+## Setup (do this once)
 
+You need Python 3.9 or newer. Check with `python --version`.
+
+### Quick way: run the setup script
 ```bash
-python -m venv venv
-source venv/bin/activate        # Windows: venv\Scripts\activate
-pip install -r requirements.txt
+# Windows (CMD or PowerShell)
+setup.bat
+
+# Git Bash, Linux, macOS, WSL
+bash setup.sh
 ```
+The script creates a `.venv` folder and installs everything in `requirements.txt`.
+
+### Manual way (step by step)
+1. Open a terminal in the `ml-practice` folder.
+2. Create the virtual environment:
+   ```bash
+   python -m venv .venv
+   ```
+3. Activate it (you should see `(.venv)` in the prompt):
+   ```bash
+   # Windows CMD
+   .venv\Scripts\activate
+   # Windows PowerShell
+   .venv\Scripts\Activate.ps1
+   # Git Bash
+   source .venv/Scripts/activate
+   # Linux, macOS, WSL
+   source .venv/bin/activate
+   ```
+4. Install the packages:
+   ```bash
+   pip install -r requirements.txt
+   ```
+   `sentence-transformers` is big (it installs PyTorch), so this can take several minutes.
+5. Check that it works:
+   ```bash
+   python -c "import sklearn, matplotlib, sentence_transformers; print('all good')"
+   ```
+
+### Every new terminal
+Activate the environment again (step 3) before running any file.
+To leave it, type `deactivate`.
+
+### Common problems
+- **PowerShell says scripts are disabled:** run
+  `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned`, then activate again.
+- **`python` not found:** try `py` (Windows) or `python3` (Linux/macOS).
+- **No plot window (WSL or server):** run in Windows or add `import matplotlib; matplotlib.use("Agg")`.
 
 ## How to run
 
