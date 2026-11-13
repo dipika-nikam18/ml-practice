@@ -16,9 +16,23 @@ ml-practice/
 │   ├── voting.py
 │   ├── stacking.py
 │   └── blending.py
-└── 03_rag_without_langchain/
-    ├── documents.txt
-    └── simple_rag.py
+├── 03_rag_without_langchain/
+│   ├── documents.txt
+│   └── simple_rag.py
+├── 04_advanced_clustering/
+│   ├── kmeans_vs_dbscan.py
+│   └── gmm_clustering.py
+├── 05_dimensionality_reduction/
+│   ├── pca_demo.py
+│   └── autoencoder_demo.py
+├── 06_anomaly_detection/
+│   ├── make_data.py
+│   ├── zscore_detection.py
+│   ├── isolation_forest.py
+│   ├── lof_detection.py
+│   └── compare_methods.py
+└── 07_association_rules/
+    └── apriori_demo.py
 ```
 
 
@@ -102,6 +116,36 @@ python simple_rag.py   # chunk -> embed -> top 2 by cosine similarity -> prompt
 ```
 The first run downloads the `all-MiniLM-L6-v2` model (needs internet).
 Edit `documents.txt` or the `question` in the script to experiment.
+
+### 04_advanced_clustering
+```bash
+cd 04_advanced_clustering
+python kmeans_vs_dbscan.py   # moon-shaped data: K-means vs DBSCAN side by side
+python gmm_clustering.py     # Gaussian Mixture Model, prints group probabilities
+```
+
+### 05_dimensionality_reduction (digits dataset)
+```bash
+cd 05_dimensionality_reduction
+python pca_demo.py           # PCA from 64 features to 2, plus explained variance
+python autoencoder_demo.py   # PyTorch autoencoder: digits -> 2 numbers -> rebuilt images
+```
+
+### 06_anomaly_detection (fake bank transactions)
+```bash
+cd 06_anomaly_detection
+python make_data.py            # makes the fake data (the other files use it)
+python zscore_detection.py     # flags payments with Z-score above 3
+python isolation_forest.py     # Isolation Forest, anomalies in red
+python lof_detection.py        # Local Outlier Factor, anomalies in red
+python compare_methods.py      # prints how many anomalies each method found
+```
+
+### 07_association_rules
+```bash
+cd 07_association_rules
+python apriori_demo.py   # supermarket bills -> rules with support, confidence, lift
+```
 
 ## Notes
 - Plot windows must be closed before a script finishes.
