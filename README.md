@@ -21,6 +21,7 @@ ml-practice/
     └── simple_rag.py
 ```
 
+
 ## Setup (do this once)
 
 You need Python 3.9 or newer. Check with `python --version`.
